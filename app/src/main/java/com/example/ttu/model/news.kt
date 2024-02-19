@@ -6,6 +6,8 @@ data class News(
     val title: String,
     val body: String,
     val image_url: String,
-    val created_by: Int,
-    val created_at: String
+    val isActive: Boolean,
+    val createdBy: String,
+    val createdAt: String
 )
+

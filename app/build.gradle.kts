@@ -2,6 +2,8 @@ plugins {
     id("com.android.application")
     id("org.jetbrains.kotlin.android")
     id("com.google.gms.google-services")
+    id("kotlin-kapt")
+    id("com.google.dagger.hilt.android")
 }
 
 android {
@@ -50,7 +52,7 @@ dependencies {
     androidTestImplementation("androidx.test.espresso:espresso-core:3.5.1")
     implementation("com.squareup.retrofit2:retrofit:2.9.0")
     implementation("com.squareup.retrofit2:converter-gson:2.9.0") // Если вы хотите использовать Gson для преобразования JSON
-
+    implementation("com.squareup.retrofit2:converter-moshi:2.9.0")
     // viewModel scope
     implementation("androidx.lifecycle:lifecycle-viewmodel-ktx:2.7.0")
 
@@ -63,6 +65,7 @@ dependencies {
 
     implementation("androidx.navigation:navigation-fragment:2.7.6")
 
+    implementation("androidx.activity:activity-compose:1.8.2")
 
     implementation("com.squareup.okhttp3:logging-interceptor:4.7.2")
     implementation("com.squareup.okhttp3:okhttp:4.7.2")
@@ -70,4 +73,13 @@ dependencies {
     implementation(platform("com.google.firebase:firebase-bom:32.7.2"))
 
     implementation("com.google.firebase:firebase-messaging")
+    implementation("com.google.dagger:hilt-android:2.44")
+    kapt("com.google.dagger:hilt-android-compiler:2.44")
+    implementation("com.squareup.picasso:picasso:2.71828")
+
+
+}
+
+kapt {
+    correctErrorTypes = true
 }
